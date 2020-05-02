@@ -9,13 +9,14 @@
 //  Created by Femi Abolaji on 15/04/2020.
 //
 
-// create composer function
-let composeFns = transformNumbers(numbers: [1,2,3])
-
 // create transformers
 let addFive = addFuncGenerator(factor: 5)
 let multiplyByThree = multiplyFuncGenerator(factor: 3)
 
+// sample data
+let data = [8, 9, 3, 1, 2, 4]
+let transformers = [addFive, multiplyByThree]
+
 // pass transformers to composer
-let result = composeFns([addFive, multiplyByThree])
-print("dfdfdfdf \(result)")
+let result = transformNumbers(numbers: data)(transformers)
+print(result)

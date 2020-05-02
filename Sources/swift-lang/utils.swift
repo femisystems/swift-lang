@@ -24,10 +24,10 @@ func addFuncGenerator(factor: Int) -> ((_ num: Int) -> Int) {
 }
 
 func multiplyFuncGenerator(factor: Int) -> ((_ num: Int) -> Int) {
-    func multiply(num: Int) -> Int {
+    func multiplyBy(num: Int) -> Int {
         return factor * num
     }
-    return multiply
+    return multiplyBy
 }
 
 func exponentFuncGenerator(exponent: Int) -> ((_ num: Int) -> Int) {
