@@ -16,11 +16,15 @@
 func transformNumbers(numbers: [Int]) -> (([(_ num: Int) -> Int]) -> [Int]) {
     func composeTransformFns(fns: [(_ num: Int) -> Int]) -> [Int] {
         let result = numbers.map({ (number: Int) -> Int in
-            var res = number
-            for fn in fns {
-                res = fn(res)
+            if fns.isEmpty {
+                return number
+            } else {
+                var res = number
+                for fn in fns {
+                    res = fn(res)
+                }
+                return res
             }
-            return res
         })
         return result
     }

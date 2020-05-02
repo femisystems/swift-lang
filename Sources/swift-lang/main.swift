@@ -18,5 +18,12 @@ let data = [8, 9, 3, 1, 2, 4]
 let transformers = [addFive, multiplyByThree]
 
 // pass transformers to composer
-let result = transformNumbers(numbers: data)(transformers)
-print(result)
+
+// Test case 1 :: ([]) -> [original data]
+let testCase1 = transformNumbers(numbers: data)([])
+print("Test case 1: \(testCase1)")
+
+// Test case 2 :: (transformers) -> [transformed data]
+let testCase2 = transformNumbers(numbers: data)(transformers)
+print("Test case 2: \(testCase2)")
+
