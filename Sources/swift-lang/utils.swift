@@ -30,10 +30,10 @@ func multiplyFuncGenerator(factor: Int) -> ((_ num: Int) -> Int) {
     return multiplyBy
 }
 
-func exponentFuncGenerator(exponent: Int) -> ((_ num: Int) -> Int) {
+func exponentFuncGenerator(power: Int) -> ((_ num: Int) -> Int) {
     func exp(num: Int) -> Int {
         var result = num
-        for _ in 0...exponent {
+        for _ in 0...power {
             result *= num
         }
         return result

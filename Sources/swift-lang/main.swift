@@ -26,4 +26,3 @@ print("Test case 1: \(testCase1)")
 // Test case 2 :: (transformers) -> [transformed data]
 let testCase2 = transformNumbers(numbers: data)(transformers)
 print("Test case 2: \(testCase2)")
-
