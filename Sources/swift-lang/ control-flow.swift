@@ -14,7 +14,7 @@ import Foundation
  *
  */
 func dictionaryLoop() {
-    let candidates: [String: Int] = [
+    let candidates: Dictionary<String, Int> = [
         "Alice": 90,
         "Daniel": 75,
         "Denice": 40,

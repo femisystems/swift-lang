@@ -1,11 +1,9 @@
 //
-//  File.swift
+//  Closure.swift
 //  
 //
 //  Created by Femi Abolaji on 30/04/2020.
 //
-
-import Foundation
 
 /**
  ------------------------------------------------------------------------
@@ -22,49 +20,19 @@ func multiplier(factor: Int) -> ((_ num: Int) -> Int) {
     return multiplyBy
 }
 
-func giantClosure() {
-    func isOdd(_ num: Int) -> Bool {
-        return num % 2 == 1
-    }
-    
-    func isEven(_ num: Int) -> Bool {
-        return num % 2 == 0
-    }
-    
-    func isPrime(_ num: Int) -> Bool {
-        var isPrime = true
-        for index in 2...num {
-            if num % index == 0 {
-                isPrime = false
-            } else {
-                isPrime = num > 1
+
+func transformNumbers(numbers: [Int]) -> (([(_ num: Int) -> Int]) -> [Int]) {
+    func composeTransformFns(fns: [(_ num: Int) -> Int]) -> [Int] {
+        let result = numbers.map({ (number: Int) -> Int in
+            var res = number
+            for fn in fns {
+                res = fn(res)
             }
-        }
-        return isPrime
+            return res
+        })
+        return result
     }
     
-    func numberAnalyser(numbers: [Int]) {
-        var oddPrime: [Int] = []
-        var evenPrime: [Int] = []
-        var notPrime: [Int] = []
-        
-        for num in numbers {
-            if isPrime(num) {
-                if isOdd(num) {
-                    oddPrime.append(num)
-                } else {
-                    evenPrime.append(num)
-                }
-            } else {
-                notPrime.append(num)
-            }
-        }
-        
-        print("odd Primes: \(oddPrime)")
-        print("even Primes: \(evenPrime)")
-        print("not primes: \(notPrime)")
-        
-    }
-    
-    numberAnalyser(numbers: [2,4,5])
+    return composeTransformFns
 }
+

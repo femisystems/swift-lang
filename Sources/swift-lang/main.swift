@@ -9,4 +9,13 @@
 //  Created by Femi Abolaji on 15/04/2020.
 //
 
-giantClosure()
+// create composer function
+let composeFns = transformNumbers(numbers: [1,2,3])
+
+// create transformers
+let addFive = addFuncGenerator(factor: 5)
+let multiplyByThree = multiplyFuncGenerator(factor: 3)
+
+// pass transformers to composer
+let result = composeFns([addFive, multiplyByThree])
+print("dfdfdfdf \(result)")
